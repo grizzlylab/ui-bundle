@@ -22,7 +22,7 @@ Easy way to generate redundant HTML (HTML only, not JS or CSS).
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     ```
 
-###2. Configuration
+###3. Configuration
 
 ####Basic configuration (to use defaults)
 ```
@@ -87,7 +87,7 @@ grizzlylab_ui:
         size:                 medium # One of "small"; "medium"; "large"
 ```
 
-###2. Helpers use in Twig
+###4. Use (in Twig)
 
 Tips:
 
