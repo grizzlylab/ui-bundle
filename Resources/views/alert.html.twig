@@ -1,6 +1,6 @@
 <div {% if attr is not empty -%}{%- for key, attribute in attr -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %} {% endif -%}{%- endfor -%}{%- else -%}class="alert alert-{{ context }}{%- if dismissible -%} alert-dismissible{%- endif -%}" role="alert"{%- endif -%}>
     {%- if dismissible -%}
-        {{- dismissible_button|raw -}}
+        {{- dismiss_button|raw -}}
     {%- endif -%}
     {%- if escape_prefix -%}
         {{- prefix -}}

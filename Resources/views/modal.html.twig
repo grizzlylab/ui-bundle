@@ -1,0 +1,68 @@
+<div {% if attr is not empty %}{%- for key, attribute in attr -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %}{% endif -%}{%- endfor -%}{%- else -%}class="modal{%- if fade %} fade{%- endif -%}{%- if size == 'small' %}bs-example-modal-sm{%- elseif size == 'large' %}bs-example-modal-lg{%- endif -%}"id="{{- id -}}" tabindex="-1" role="dialog" aria-labelledby="{{- id -}}-label"{%- endif -%}>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            {% if title is not empty %}
+                <div class="modal-header">
+                    {{ dismiss_button|raw }}
+                    <{{ title_markup }} class="modal-title" id="{{- id -}}-label">
+                        {%- if escape_title -%}
+                            {%- if translate_title -%}
+                                {{- title|trans(title_translation_parameters, title_translation_domain) -}}
+                            {%- else -%}
+                                {{- title -}}
+                            {%- endif -%}
+                        {%- else -%}
+                            {%- if translate_title -%}
+                                {{- title|trans(title_translation_parameters, title_translation_domain)|raw -}}
+                            {%- else -%}
+                                {{- title|raw -}}
+                            {%- endif -%}
+                        {%- endif -%}
+                    </{{ title_markup }}>
+                </div>
+            {% endif %}
+            <div class="modal-body">
+                {%- if escape_body -%}
+                    {%- if translate_body -%}
+                        {{- body|trans(body_translation_parameters, body_translation_domain) -}}
+                    {%- else -%}
+                        {{- body -}}
+                    {%- endif -%}
+                {%- else -%}
+                    {%- if translate_body -%}
+                        {{- body|trans(body_translation_parameters, body_translation_domain)|raw -}}
+                    {%- else -%}
+                        {{- body|raw -}}
+                    {%- endif -%}
+                {%- endif -%}
+            </div>
+            {%- if footer_buttons|length > 0 -%}
+                <div class="modal-footer">
+                    {%- for button in footer_buttons -%}
+
+                        {%- if button['escape'] -%}
+                            {%- if button['translate'] -%}
+                                {% set label = button['label']|trans(button['translation_parameters'], button['translation_domain']) %}
+                            {%- else -%}
+                                {% set label = button['label'] %}
+                            {%- endif -%}
+                        {%- else -%}
+                            {%- if button['translate'] -%}
+                                {% set label = button['label']|trans(button['translation_parameters'], button['translation_domain'])|raw %}
+                            {%- else -%}
+                                {% set label = button['label']|raw %}
+                            {%- endif -%}
+                        {%- endif -%}
+
+                        {%- if button['url'] is defined and button['url'] is not empty -%}
+                            <a href="{{- button['url'] -}}"{% if button['attr'] is not empty -%} {%- for key, attribute in button['attr'] -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %} {% endif -%}{%- endfor -%}{%- else -%}class="btn btn-{{- button['context'] -}}"{%- if button['dismiss'] -%} data-dismiss="modal"{%- endif -%}{% endif %}>{{- label -}}</a>
+                        {%- else -%}
+                            <button type="button"{% if button['attr'] is defined and button['attr'] is not empty -%} {%- for key, attribute in button['attr'] -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %} {% endif -%}{%- endfor -%}{%- else -%}class="btn btn-{{- button['context'] -}}"{%- if button['dismiss'] is defined and button['dismiss'] -%} data-dismiss="modal"{%- endif -%}{% endif %}>{{- label -}}</button>
+                        {%- endif -%}
+
+                    {%- endfor -%}
+                </div>
+            {%- endif -%}
+        </div>
+    </div>
+</div>

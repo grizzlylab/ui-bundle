@@ -28,38 +28,75 @@ Easy way to generate redundant HTML (HTML only, not JS or CSS).
 ```
 #app/config/config.yml
 grizzlylab_ui:
-    alert: ~
+    alert: ~ #enable "alert" helper
+    modal: ~ #enable "modal" helper
+    modal_trigger: ~ #enable "modal_trigger" helper
 ```
 
 ####Complete default configuration
 ```
-#app/config/config.yml
+# Default configuration for "GrizzlylabUIBundle"
 grizzlylab_ui:
     alert:
+        template:             'GrizzlylabUIBundle::alert.html.twig'
         translation_domain:   messages
         translation_parameters:  []
         translate:            true
         escape_message:       true
         escape_prefix:        false
-        context:              info # One of "info"; "success"; "warning"; "danger"
         dismissible:          false
-        dismissible_button:   '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'
+        dismiss_button:       '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'
         display_prefix:       true
-        template:             'GrizzlylabUIBundle::alert.html.twig'
+        context:              info # One of "info"; "success"; "warning"; "danger"
         prefixes:
             info:                 '<span class="glyphicon glyphicon-info-sign"></span> '
             success:              '<span class="glyphicon glyphicon-ok"></span> '
             warning:              '<span class="glyphicon glyphicon-warning-sign"></span> '
             danger:               '<span class="glyphicon glyphicon-warning-sign"></span> '
+    modal:
+        template:             'GrizzlylabUIBundle::modal.html.twig'
+        id:                   modal
+        fade:                 true
+        size:                 medium # One of "small"; "medium"; "large"
+        escape_title:         true
+        escape_body:          true
+        translate_title:      true
+        translate_body:       true
+        title_markup:         h1
+        title_translation_domain:  messages
+        title_translation_parameters:  []
+        body_translation_domain:  messages
+        body_translation_parameters:  []
+        dismiss_button:       '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>'
+        footer_buttons:
+            -   #there is a close button in the footer by default
+                link:                false
+                escape:              true
+                translate:           true
+                dissmiss:            true
+                context:             default
+                label:               grizzlylab_ui.modal.close
+    modal_trigger:
+        template:             'GrizzlylabUIBundle::modal_trigger.html.twig'
+        context:              info # One of "info"; "success"; "warning"; "danger"
+        prefix:               ~
+        escape:               true
+        translate:            true
+        translation_domain:   messages
+        translation_parameters:  []
+        size:                 medium # One of "small"; "medium"; "large"
 ```
 
-###2. Use in Twig
+###2. Helpers use in Twig
 
-#### "Alert" Helper:
+Tips:
 
-Tip: Each option defined in grizzlylab_ui.alert (config.yml) can be overridden.
+* Almost each option defined in grizzlylab_ui (config.yml) can be overridden.
+* For all available options, please check [UIComponentExtension.php](https://github.com/grizzlylab/ui-bundle/blob/master/Twig/UIComponentExtension.php) (functions "alert", "modalTrigger" and "modal")
 
-Exemples:
+#### a) "Alert" Helper:
+
+Examples:
 
 Function:
 ```
@@ -75,7 +112,27 @@ Filter:
 {{ 'your form is not valid'|alert }}
 ```
 
-If you use Bootstrap 3 (default), compliant HTML for modal will be generated (http://getbootstrap.com/components/#alerts).
+#### b) "Modal" and "Modal Trigger" helpers:
+Examples:
+
+Function:
+```
+#trigger
+{{ modal_trigger('my trigger label') }}
+#modal
+{{ modal('my modal body', {'title': my modal title'}) }}
+```
+
+Filter:
+```
+#trigger
+{{ 'my trigger label'|modal_trigger }}
+#modal
+{{ 'my modal body'|modal({'title': my modal title'}) }}
+```
+
+
+If you use Bootstrap 3 (default), compliant HTML will be generated ([alert](http://getbootstrap.com/components/#alerts),[modal](http://getbootstrap.com/javascript/#modals)).
 
 License
 -------
