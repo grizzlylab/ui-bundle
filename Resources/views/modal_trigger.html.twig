@@ -1,4 +1,4 @@
-<button {% if attr is not empty %}{%- for key, attribute in attr -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %}{% endif -%}{%- endfor -%}{%- else -%}type="button" class="btn btn-{{ context }}" data-toggle="modal" data-target="{{ target }}"{% endif %}>
+<button {% if attr is not empty -%}{%- for key, attribute in attr -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %} {% endif -%}{%- endfor -%}{%- else -%}type="button" class="btn btn-{{- context -}}" data-toggle="modal" data-target="{{- target -}}-"{%- endif -%}>
     {%- if escape -%}
         {%- if translate -%}
             {{- label|trans(translation_parameters, translation_domain) -}}

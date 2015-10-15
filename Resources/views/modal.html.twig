@@ -1,4 +1,4 @@
-<div {% if attr is not empty %}{%- for key, attribute in attr -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %}{% endif -%}{%- endfor -%}{%- else -%}class="modal{%- if fade %} fade{%- endif -%}{%- if size == 'small' %}bs-example-modal-sm{%- elseif size == 'large' %}bs-example-modal-lg{%- endif -%}"id="{{- id -}}" tabindex="-1" role="dialog" aria-labelledby="{{- id -}}-label"{%- endif -%}>
+<div {% if attr is not empty -%}{%- for key, attribute in attr -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %} {% endif -%}{%- endfor -%}{%- else -%}class="modal{%- if fade %} fade{%- endif -%}{%- if size == 'small' -%}bs-example-modal-sm{%- elseif size == 'large' -%}bs-example-modal-lg{%- endif -%}"id="{{- id -}}" tabindex="-1" role="dialog" aria-labelledby="{{- id -}}-label"{%- endif -%}>
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             {% if title is not empty %}
