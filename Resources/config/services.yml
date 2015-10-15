@@ -1,0 +1,10 @@
+parameters:
+  grizzlylab_ui.twig.extension.class: Grizzlylab\Bundle\UIBundle\Twig\UIComponentExtension
+
+services:
+    grizzlylab_ui.twig.extension:
+        class: %grizzlylab_ui.twig.extension.class%
+        arguments:
+            - %grizzlylab_ui_config%
+        tags:
+            - { name: twig.extension }

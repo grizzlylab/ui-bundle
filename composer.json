@@ -1,0 +1,25 @@
+{
+    "name": "grizzlylab/ui-bundle",
+    "type": "symfony-bundle",
+    "description": "UI Twig helpers (alert, modal) for Twitter Bootstrap and Co",
+    "keywords": ["user interface", "ui", "bootstrap"],
+    "homepage": "https://github.com/grizzlylab/UIBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jean-Louis Pirson",
+            "email": "jl.pirson@grizzlylab.be"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "symfony/symfony": "~2.7",
+        "twig/twig": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Grizzlylab\\Bundle\\UIBundle\\": ""
+        }
+    }
+}
+
