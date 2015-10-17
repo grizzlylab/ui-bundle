@@ -155,7 +155,7 @@ class UIComponentExtension extends \Twig_Extension
                 'translation_parameters' => isset($options['translation_parameters']) ? $options['translation_parameters'] : $config['translation_parameters'],
                 'translate' => isset($options['translate']) ? $options['translate'] : $config['translate'],
                 'label' => $label,
-                'target' => isset($options['target']) ? $options['target'] : '#'.$this->uiConfig['modal']['id'],
+                'target' => isset($options['target']) ? $options['target'] : $this->uiConfig['modal']['id'],
                 'context' => isset($options['context']) ? $options['context'] : $config['context'],
                 'prefix' => isset($options['prefix']) ? $options['prefix'] : null,
                 'escape' => isset($options['escape']) ? $options['escape'] : $config['escape'],
