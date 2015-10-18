@@ -180,6 +180,10 @@ class UIComponentExtension extends \Twig_Extension
 
         $footerButtons = isset($options['footer_buttons']) ? $options['footer_buttons'] : $config['footer_buttons'];
 
+        if ($config['keep_default_footer_buttons'] && isset($options['footer_buttons'])) {
+            $footerButtons = array_merge($config['footer_buttons'], $footerButtons);
+        }
+
         //define some default values for footer_buttons (not defined in Configuration.php)
         $i = 0;
         foreach ($footerButtons as $footerButton) {

@@ -68,6 +68,7 @@ grizzlylab_ui:
         body_translation_domain:  messages
         body_translation_parameters:  []
         dismiss_button:       '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>'
+        keep_default_footer_buttons: true
         footer_buttons:
             -   #there is a close button in the footer by default
                 link:                false

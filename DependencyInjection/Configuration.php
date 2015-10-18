@@ -65,6 +65,7 @@ class Configuration implements ConfigurationInterface
                         ->prototype('scalar')->end()
                     ->end()
                     ->scalarNode('dismiss_button')->defaultValue('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>')->end()
+                    ->booleanNode('keep_default_footer_buttons')->defaultTrue()->end()
                     ->arrayNode('footer_buttons')
                         ->treatNullLike([])
                         ->prototype('array')->end()
