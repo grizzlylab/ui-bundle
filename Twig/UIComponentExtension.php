@@ -235,7 +235,10 @@ class UIComponentExtension extends \Twig_Extension
                 'body_translation_domain' => isset($options['body_translation_domain']) ? $options['body_translation_domain'] : $config['body_translation_domain'],
                 'body_translation_parameters' => isset($options['body_translation_parameters']) ? $options['body_translation_parameters'] : $config['body_translation_parameters'],
 
+                'footer_raw_prepend' => isset($options['footer_raw_prepend']) ? $options['footer_raw_prepend'] : $config['footer_raw_prepend'],
+                'footer_raw_append' => isset($options['footer_raw_append']) ? $options['footer_raw_append'] : $config['footer_raw_append'],
                 'footer_buttons' => $footerButtons,
+
                 'dismiss_button' => isset($options['dismiss_button']) ? $options['dismiss_button'] : $config['dismiss_button'],
             ]
         );

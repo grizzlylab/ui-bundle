@@ -38,6 +38,7 @@
             </div>
             {%- if footer_buttons|length > 0 -%}
                 <div class="modal-footer">
+                    {{ footer_raw_prepend|raw }}
                     {%- for button in footer_buttons -%}
                         {%- if button['escape'] -%}
                             {%- if button['translate'] -%}
@@ -58,6 +59,7 @@
                             <button type="button"{% if button['attr'] is defined and button['attr'] is not empty -%} {%- for key, attribute in button['attr'] -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %} {% endif -%}{%- endfor -%}{%- else -%}class="btn btn-{{- button['context'] -}}"{%- if button['dismiss'] is defined and button['dismiss'] -%} data-dismiss="modal"{%- endif -%}{% endif %}>{{- label -}}</button>
                         {%- endif -%}
                     {%- endfor -%}
+                    {{ footer_raw_append|raw }}
                 </div>
             {%- endif -%}
         </div>
