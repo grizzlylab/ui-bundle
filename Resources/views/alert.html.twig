@@ -2,10 +2,12 @@
     {%- if dismissible -%}
         {{- dismiss_button|raw -}}
     {%- endif -%}
-    {%- if escape_prefix -%}
-        {{- prefix -}}
-    {%- else -%}
-        {{- prefix|raw -}}
+    {%- if display_prefix -%}
+        {%- if escape_prefix -%}
+            {{- prefix -}}
+        {%- else -%}
+            {{- prefix|raw -}}
+        {%- endif -%}
     {%- endif -%}
     {%- if escape_message -%}
         {%- if translate -%}
