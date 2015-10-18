@@ -67,7 +67,7 @@ class Configuration implements ConfigurationInterface
                     ->scalarNode('dismiss_button')->defaultValue('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>')->end()
                     ->arrayNode('footer_buttons')
                         ->treatNullLike([])
-                        ->prototype('scalar')->end()
+                        ->prototype('array')->end()
                         ->defaultValue([0 => ['link' => false, 'escape' => true, 'translate' => true, 'dissmiss' => true, 'context' => 'default', 'label' => 'grizzlylab_ui.modal.close']])
                         ->prototype('array')->end()
                     ->end()// footer_buttons

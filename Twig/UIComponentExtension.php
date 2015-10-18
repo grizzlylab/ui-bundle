@@ -189,6 +189,9 @@ class UIComponentExtension extends \Twig_Extension
             if (!isset($footerButton['translate'])) {
                 $footerButton['translate'] = true;
             }
+            if (!isset($footerButton['context'])) {
+                $footerButton['context'] = 'info';
+            }
             if (!isset($footerButton['translation_parameters'])) {
                 $footerButton['translation_parameters'] = [];
             }
