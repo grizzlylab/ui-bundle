@@ -206,7 +206,7 @@ class UIComponentExtension extends \Twig_Extension
                 $footerButton['translate'] = true;
             }
             if (!isset($footerButton['dismiss'])) {
-                $footerButton['dismiss'] = true;
+                $footerButton['dismiss'] = false;
             }
             $footerButtons[$i] = $footerButton;
             $i++;
