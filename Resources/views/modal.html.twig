@@ -36,7 +36,7 @@
                     {%- endif -%}
                 {%- endif -%}
             </div>
-            {%- if footer_buttons|length > 0 -%}
+            {%- if footer_buttons|length > 0 or footer_raw_prepend is not empty or footer_raw_append is not empty -%}
                 <div class="modal-footer">
                     {{ footer_raw_prepend|raw }}
                     {%- for button in footer_buttons -%}
