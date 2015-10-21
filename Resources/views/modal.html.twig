@@ -30,7 +30,7 @@
                     {%- endif -%}
                 {%- else -%}
                     {%- if translate_body -%}
-                        {{- body|trans(body_translation_parameters, body_translation_domain)|raw -}}
+                        {{- body|trans(body_translation_parameters, body_translation_domain)|raw|nl2br -}}
                     {%- else -%}
                         {{- body|raw -}}
                     {%- endif -%}
