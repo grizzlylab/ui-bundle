@@ -161,6 +161,7 @@ class UIComponentExtension extends \Twig_Extension
                 'escape' => isset($options['escape']) ? $options['escape'] : $config['escape'],
                 'size' => isset($options['size']) ? $options['size'] : $config['size'],
                 'attr' => isset($options['attr']) ? $options['attr'] : null,
+                'is_link' => isset($options['is_link']) ? $options['is_link'] : $config['is_link'],
             ]
         );
     }

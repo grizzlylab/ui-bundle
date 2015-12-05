@@ -88,6 +88,7 @@ grizzlylab_ui:
         translation_domain:   messages
         translation_parameters:  []
         size:                 medium # One of "small"; "medium"; "large"
+        is_link:              false
 ```
 
 ###4. Use (in Twig)

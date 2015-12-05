@@ -89,6 +89,7 @@ class Configuration implements ConfigurationInterface
                         ->prototype('scalar')->end()
                     ->end()
                     ->enumNode('size')->values(['small', 'medium', 'large'])->defaultValue('medium')->end()
+                    ->booleanNode('is_link')->defaultFalse()->end()
                 ->end()// modal_trigger children
             ->end()// modal_trigger
 
