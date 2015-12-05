@@ -1,5 +1,6 @@
 {%- if is_link -%}
-    <a {% if attr is not empty -%}{%- for key, attribute in attr -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %} {% endif -%}{%- endfor -%}{%- else -%}href="#"{% if 'class' not in attr|keys %} class="text-{{- context -}}{% endif %}" data-toggle="modal" data-target="#{{- target -}}"{%- endif -%}>
+    <a {% if attr is not empty -%}{%- for key, attribute in attr -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %} {% endif -%}{%- endfor -%}{%- else -%}href="#" data-toggle="modal" data-target="#{{- target -}}"{%- endif -%}>
+        <span class="text-{{ context }}">
 {% else %}
     <button {% if attr is not empty -%}{%- for key, attribute in attr -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %} {% endif -%}{%- endfor -%}{%- else -%}type="button"{% if 'class' not in attr|keys %} class="btn btn-{{- context -}}{% endif %}" data-toggle="modal" data-target="#{{- target -}}"{%- endif -%}>
 {%- endif -%}
@@ -17,6 +18,7 @@
     {%- endif -%}
 {%- endif -%}
 {%- if is_link -%}
+        </span>
     </a>
 {%- else -%}
     </button>
