@@ -151,6 +151,7 @@ class UIComponentExtension extends \Twig_Extension
         return $environment->render(
             isset($options['template']) ? $options['template'] : $config['template'],
             [
+                'backdrop' => isset($options['backdrop']) ? $options['backdrop'] : $this->uiConfig['modal']['backdrop'],
                 'translation_domain' => isset($options['translation_domain']) ? $options['translation_domain'] : $config['translation_domain'],
                 'translation_parameters' => isset($options['translation_parameters']) ? $options['translation_parameters'] : $config['translation_parameters'],
                 'translate' => isset($options['translate']) ? $options['translate'] : $config['translate'],
