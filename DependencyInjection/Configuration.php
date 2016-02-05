@@ -49,6 +49,7 @@ class Configuration implements ConfigurationInterface
                 ->children()
                     ->scalarNode('template')->defaultValue('GrizzlylabUIBundle::modal.html.twig')->end()
                     ->scalarNode('id')->defaultValue('modal')->end()
+                    ->booleanNode('backdrop')->defaultTrue()->end()
                     ->booleanNode('fade')->defaultTrue()->end()
                     ->enumNode('size')->values(['small', 'medium', 'large'])->defaultValue('medium')->end()
                     ->booleanNode('escape_title')->defaultTrue()->end()

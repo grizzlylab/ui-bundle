@@ -55,6 +55,7 @@ grizzlylab_ui:
             danger:               '<span class="glyphicon glyphicon-warning-sign"></span> '
     modal:
         template:             'GrizzlylabUIBundle::modal.html.twig'
+        backdrop:             true
         id:                   modal
         fade:                 true
         size:                 medium # One of "small"; "medium"; "large"
