@@ -220,6 +220,7 @@ class UIComponentExtension extends \Twig_Extension
             [
                 'id' => isset($options['id']) ? $options['id'] : $config['id'],
                 'backdrop' => isset($options['backdrop']) ? $options['backdrop'] : $this->uiConfig['modal']['backdrop'],
+                'keyboard' => isset($options['keyboard']) ? $options['keyboard'] : $this->uiConfig['modal']['keyboard'],
                 'attr' => isset($options['attr']) ? $options['attr'] : null,
                 'fade' => isset($options['fade']) ? $options['fade'] : $config['fade'],
                 'size' => isset($options['size']) ? $options['size'] : $config['size'],
