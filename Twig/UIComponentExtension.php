@@ -100,7 +100,7 @@ class UIComponentExtension extends \Twig_Extension
                 ]
             );
         }
-        if (isset($this->uiConfig['truncate'])) {
+        if (isset($this->uiConfig['truncate_to_tooltip'])) {
             $r[] = new \Twig_SimpleFilter(
                 'truncate_to_tooltip',
                 [$this, 'truncate_to_tooltip'],
