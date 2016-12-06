@@ -104,7 +104,10 @@ class UIComponentExtension extends \Twig_Extension
             $r[] = new \Twig_SimpleFilter(
                 'truncate_to_tooltip',
                 [$this, 'truncate_to_tooltip'],
-                ['needs_environment' => true]
+                [
+                    'is_safe' => ['html'],
+                    'needs_environment' => true
+                ]
             );
         }
 
