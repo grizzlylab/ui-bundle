@@ -1,1 +1,7 @@
-<span data-toggle="tooltip" title="{{ value }}">{{ value|truncate(length, preserve, separator) }}</span>
+{%- if value|length > length -%}
+    <span data-toggle="tooltip" title="{{ value }}">
+{%- endif -%}
+{{- value|truncate(length, preserve, separator) -}}
+{%- if value|length > length -%}
+    </span>
+{%- endif -%}
