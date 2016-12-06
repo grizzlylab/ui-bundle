@@ -31,6 +31,7 @@ grizzlylab_ui:
     alert: ~ #enable "alert" helper
     modal: ~ #enable "modal" helper
     modal_trigger: ~ #enable "modal_trigger" helper
+    truncate: ~ #enabled "trigger" helper (only available as a filter, not a function)
 ```
 
 ####Complete default configuration
@@ -91,6 +92,8 @@ grizzlylab_ui:
         translation_parameters:  []
         size:                 medium # One of "small"; "medium"; "large"
         is_link:              false
+    truncate: 
+        template:             'GrizzlylabUIBundle::truncate.html.twig'
 ```
 
 ###4. Use (in Twig)
@@ -137,6 +140,15 @@ Filter:
 {{ 'my modal body'|modal({'title': my modal title'}) }}
 ```
 
+#### c) "truncate_to_tooltip" filter
+This filter depends on the "truncate" filter from the Twig "Text" extension (http://twig.sensiolabs.org/doc/extensions/text.html)
+For performance reasons, you must enable Bootstrap tooltips (http://getbootstrap.com/javascript/#tooltips)
+Then, you can simply use the filter like this: 
+```
+#will truncate the text and show the entire text in a tooltip (when mouse is over the truncated text)
+{{ 'my very long text'|truncate_to_tooltip }}
+{{ 'my very long text'|truncate_to_tooltip(length, preserve, separator) }}
+```
 
 If you use Bootstrap 3 (default), compliant HTML will be generated ([alert](http://getbootstrap.com/components/#alerts),[modal](http://getbootstrap.com/javascript/#modals)).
 

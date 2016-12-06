@@ -95,6 +95,12 @@ class Configuration implements ConfigurationInterface
                 ->end()// modal_trigger children
             ->end()// modal_trigger
 
+            ->arrayNode('truncate')
+                ->children()
+                    ->scalarNode('template')->defaultValue('GrizzlylabUIBundle::truncate_to_tooltip.html.twig')->end()
+                ->end()// truncate children
+            ->end()// truncate
+
         ->end()// root children
         ->end();// root
 

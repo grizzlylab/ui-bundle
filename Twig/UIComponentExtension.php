@@ -4,12 +4,12 @@ namespace Grizzlylab\Bundle\UIBundle\Twig;
 
 /**
  * Class UIComponentExtension
+ *
  * @package MYQMP\Bundle\CoreBundle\Twig
  * @author  Jean-Louis Pirson <jl.pirson@grizzlylab.be>
  */
 class UIComponentExtension extends \Twig_Extension
 {
-
     private $uiConfig = array();
 
     /**
@@ -98,6 +98,13 @@ class UIComponentExtension extends \Twig_Extension
                     'is_safe' => ['html'],
                     'needs_environment' => true,
                 ]
+            );
+        }
+        if (isset($this->uiConfig['truncate'])) {
+            $r[] = new \Twig_SimpleFilter(
+                'truncate_to_tooltip',
+                [$this, 'truncate_to_tooltip'],
+                ['needs_environment' => true]
             );
         }
 
@@ -245,6 +252,32 @@ class UIComponentExtension extends \Twig_Extension
                 'footer_buttons' => $footerButtons,
 
                 'dismiss_button' => isset($options['dismiss_button']) ? $options['dismiss_button'] : $config['dismiss_button'],
+            ]
+        );
+    }
+
+    /**
+     * truncate_to_tooltip
+     *
+     * @param \Twig_Environment $env
+     * @param                   $value
+     * @param int|null          $length
+     * @param bool|null         $preserve
+     * @param string|null       $separator
+     *
+     * @return mixed
+     */
+    public function truncate_to_tooltip(\Twig_Environment $env, $value, $length = null, $preserve = null, $separator = null)
+    {
+        $config = $this->uiConfig['truncate_to_tooltip'];
+
+        return $env->render(
+            isset($options['template']) ? $options['template'] : $config['template'],
+            [
+                'value' => $value,
+                'length' => $length,
+                'preserve' => $preserve,
+                'separator' => $separator,
             ]
         );
     }
