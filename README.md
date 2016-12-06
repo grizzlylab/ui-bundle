@@ -92,7 +92,7 @@ grizzlylab_ui:
         translation_parameters:  []
         size:                 medium # One of "small"; "medium"; "large"
         is_link:              false
-    truncate: 
+    truncate_to_tooltip: 
         template:             'GrizzlylabUIBundle::truncate.html.twig'
 ```
 
