@@ -274,8 +274,6 @@ class UIComponentExtension extends \Twig_Extension
     public function truncate_to_tooltip(\Twig_Environment $env, string $value, ?int $length = null, array $options = []): string {
         $config = $this->uiConfig['truncate_to_tooltip'];
 
-        dump($config);
-
         return $env->render(
             isset($options['template']) ? $options['template'] : $config['template'],
             [
