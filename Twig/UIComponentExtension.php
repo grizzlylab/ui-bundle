@@ -17,7 +17,7 @@ class UIComponentExtension extends \Twig_Extension
      *
      * @param array $uiConfig
      */
-    public function __construct($uiConfig)
+    public function __construct(array $uiConfig)
     {
         $this->uiConfig = $uiConfig;
     }
@@ -114,14 +114,16 @@ class UIComponentExtension extends \Twig_Extension
         return $r;
     }
 
-    /**
+	/**
+	 * alert.
+     *
      * @param \Twig_Environment $environment
      * @param string            $message
      * @param array             $options
      *
      * @return string
      */
-    public function alert(\Twig_Environment $environment, $message, array $options = [])
+    public function alert(\Twig_Environment $environment, string $message, array $options = []): string
     {
         $config = $this->uiConfig['alert'];
         $context = isset($options['context']) ? $options['context'] : $config['context'];
@@ -146,7 +148,7 @@ class UIComponentExtension extends \Twig_Extension
     }
 
     /**
-     * Modal Trigger
+     * Modal Trigger.
      *
      * @param \Twig_Environment $environment
      * @param string            $label
@@ -154,7 +156,7 @@ class UIComponentExtension extends \Twig_Extension
      *
      * @return string
      */
-    public function modalTrigger(\Twig_Environment $environment, $label, array $options = [])
+    public function modalTrigger(\Twig_Environment $environment, string $label, array $options = []): string
     {
         $config = $this->uiConfig['modal_trigger'];
 
@@ -177,7 +179,7 @@ class UIComponentExtension extends \Twig_Extension
     }
 
     /**
-     * Modal
+     * Modal.
      *
      * @param \Twig_Environment $environment
      * @param string            $body
@@ -185,7 +187,7 @@ class UIComponentExtension extends \Twig_Extension
      *
      * @return string
      */
-    public function modal(\Twig_Environment $environment, $body, array $options = [])
+    public function modal(\Twig_Environment $environment, string $body, array $options = []): string
     {
         $config = $this->uiConfig['modal'];
 
@@ -263,24 +265,25 @@ class UIComponentExtension extends \Twig_Extension
      * truncate_to_tooltip
      *
      * @param \Twig_Environment $env
-     * @param                   $value
+     * @param string            $value
      * @param int|null          $length
-     * @param bool|null         $preserve
-     * @param string|null       $separator
+     * @param array             $options
      *
-     * @return mixed
+     * @return string
      */
-    public function truncate_to_tooltip(\Twig_Environment $env, $value, $length = 30, $preserve = false, $separator = '...')
-    {
+    public function truncate_to_tooltip(\Twig_Environment $env, string $value, ?int $length = null, array $options = []): string {
         $config = $this->uiConfig['truncate_to_tooltip'];
+
+        dump($config);
 
         return $env->render(
             isset($options['template']) ? $options['template'] : $config['template'],
             [
                 'value' => $value,
-                'length' => $length,
-                'preserve' => $preserve,
-                'separator' => $separator,
+                'length' => $length ? $length : $config['length'],
+                'preserve' => isset($options['preserve']) ? $options['preserve'] : $config['preserve'],
+                'separator' => isset($options['separator']) ? $options['separator'] : $config['separator'],
+                'tooltipPlacement' => isset($options['tooltipPlacement']) ? $options['tooltipPlacement'] : $config['tooltipPlacement'],
             ]
         );
     }
