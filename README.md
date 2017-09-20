@@ -4,12 +4,12 @@ GrizzlylabUIBundle
 UI Twig helpers (alert, modal,...) for Twitter Bootstrap 3 and others.
 Easy way to generate redundant HTML (HTML only, not JS or CSS).
 
-###1. Requirements
+### 1. Requirements
 - PHP >=5.4
 - Twig 1.*
 - Symfony ~2.7|~3.0
 
-###2. Installation
+### 2. Installation
 
 - ```composer require 'grizzlylab/ui-bundle@dev-master'```
 - in AppKernel.php: ```new Grizzlylab\Bundle\UIBundle\GrizzlylabUIBundle()```
@@ -22,9 +22,9 @@ Easy way to generate redundant HTML (HTML only, not JS or CSS).
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     ```
 
-###3. Configuration
+### 3. Configuration
 
-####Basic configuration (to use defaults)
+#### Basic configuration (to use defaults)
 ```
 #app/config/config.yml
 grizzlylab_ui:
@@ -34,7 +34,7 @@ grizzlylab_ui:
     truncate: ~ #enabled "trigger" helper (only available as a filter, not a function)
 ```
 
-####Complete default configuration
+#### Complete default configuration
 ```
 # Default configuration for "GrizzlylabUIBundle"
 grizzlylab_ui:
@@ -96,7 +96,7 @@ grizzlylab_ui:
         template:             'GrizzlylabUIBundle::truncate.html.twig'
 ```
 
-###4. Use (in Twig)
+### 4. Use (in Twig)
 
 Tips:
 
