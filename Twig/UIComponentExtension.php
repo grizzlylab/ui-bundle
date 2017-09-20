@@ -281,7 +281,7 @@ class UIComponentExtension extends \Twig_Extension
                 'length' => $length ? $length : $config['length'],
                 'preserve' => isset($options['preserve']) ? $options['preserve'] : $config['preserve'],
                 'separator' => isset($options['separator']) ? $options['separator'] : $config['separator'],
-                'tooltipPlacement' => isset($options['tooltipPlacement']) ? $options['tooltipPlacement'] : $config['tooltipPlacement'],
+                'tooltip_placement' => isset($options['tooltip_placement']) ? $options['tooltip_placement'] : $config['tooltip_placement'],
             ]
         );
     }

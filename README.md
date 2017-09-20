@@ -94,6 +94,10 @@ grizzlylab_ui:
         is_link:              false
     truncate_to_tooltip: 
         template:             'GrizzlylabUIBundle::truncate.html.twig'
+        length:               30
+        preserve:             false
+        separator:            '...'  
+        tooltip_placement:    'top'  #use one of these: top, right, bottom, left  
 ```
 
 ### 4. Use (in Twig)
