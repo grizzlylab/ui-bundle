@@ -151,7 +151,7 @@ Then, you can simply use the filter like this:
 ```
 #will truncate the text and show the entire text in a tooltip (when mouse is over the truncated text)
 {{ 'my very long text'|truncate_to_tooltip }}
-{{ 'my very long text'|truncate_to_tooltip(length, preserve, separator) }}
+{{ 'my very long text'|truncate_to_tooltip(length, options) }}
 ```
 
 If you use Bootstrap 3 (default), compliant HTML will be generated ([alert](http://getbootstrap.com/components/#alerts),[modal](http://getbootstrap.com/javascript/#modals)).
