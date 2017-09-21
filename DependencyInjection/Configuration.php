@@ -100,7 +100,7 @@ class Configuration implements ConfigurationInterface
                     ->integerNode('length')->defaultValue(30)->end()
                     ->booleanNode('preserve')->defaultFalse()->end()
                     ->scalarNode('separator')->defaultValue('...')->end()
-	                ->enumNode('tooltipPlacement')->values(['top', 'right', 'bottom', 'left'])->defaultValue('top')->end()
+	                ->enumNode('tooltip-placement')->values(['top', 'right', 'bottom', 'left'])->defaultValue('top')->end()
                     ->scalarNode('template')->defaultValue('GrizzlylabUIBundle::truncate_to_tooltip.html.twig')->end()
                 ->end()// truncate children
             ->end()// truncate
