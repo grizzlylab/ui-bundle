@@ -1,23 +1,23 @@
 {%- if is_link -%}
-    <a {% if attr is not empty -%}{%- for key, attribute in attr -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %} {% endif -%}{%- endfor -%}{%- else -%}href="#" data-toggle="modal" data-target="#{{- target -}}"{%- endif -%}>
-        <span class="text-{{ context }}">
+<a {% if attr is not empty -%}{%- for key, attribute in attr -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %} {% endif -%}{%- endfor -%} {% endif %}href="#" data-toggle="modal" data-target="#{{- target -}}">
+<span {% if 'class' not in attr|keys %} class="text-{{ context }}"{% endif %}>
 {% else %}
-    <button {% if attr is not empty -%}{%- for key, attribute in attr -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %} {% endif -%}{%- endfor -%}{%- else -%}type="button"{% if 'class' not in attr|keys %} class="btn btn-{{- context -}}{% endif %}" data-toggle="modal" data-target="#{{- target -}}"{%- endif -%}>
-{%- endif -%}
-{%- if escape -%}
-    {%- if translate -%}
-        {{- label|trans(translation_parameters, translation_domain) -}}
-    {%- else -%}
-        {{- label -}}
+    <button {% if attr is not empty -%}{%- for key, attribute in attr -%}{{- key -}}="{{- attribute -}}"{%- if not loop.first or not loop.last %} {% endif -%}{%- endfor -%} {%- endif -%}type="button"{% if 'class' not in attr|keys %} class="btn btn-{{- context -}}{% endif %}" data-toggle="modal" data-target="#{{- target -}}">
     {%- endif -%}
-{%- else -%}
-    {%- if translate -%}
-        {{- label|trans(translation_parameters, translation_domain)|raw -}}
+    {%- if escape -%}
+        {%- if translate -%}
+            {{- label|trans(translation_parameters, translation_domain) -}}
+        {%- else -%}
+            {{- label -}}
+        {%- endif -%}
     {%- else -%}
-        {{- label|raw -}}
+        {%- if translate -%}
+            {{- label|trans(translation_parameters, translation_domain)|raw -}}
+        {%- else -%}
+            {{- label|raw -}}
+        {%- endif -%}
     {%- endif -%}
-{%- endif -%}
-{%- if is_link -%}
+    {%- if is_link -%}
         </span>
     </a>
 {%- else -%}
