@@ -169,7 +169,6 @@ class UIComponentExtension extends \Twig_Extension
                 'label' => $label,
                 'target' => isset($options['target']) ? $options['target'] : $this->uiConfig['modal']['id'],
                 'context' => isset($options['context']) ? $options['context'] : $config['context'],
-                'prefix' => isset($options['prefix']) ? $options['prefix'] : null,
                 'escape' => isset($options['escape']) ? $options['escape'] : $config['escape'],
                 'size' => isset($options['size']) ? $options['size'] : $config['size'],
                 'attr' => isset($options['attr']) ? $options['attr'] : null,

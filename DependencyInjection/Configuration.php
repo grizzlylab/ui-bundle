@@ -83,7 +83,6 @@ class Configuration implements ConfigurationInterface
                 ->children()
                     ->scalarNode('template')->defaultValue('GrizzlylabUIBundle::modal_trigger.html.twig')->end()
                     ->enumNode('context')->values(['info', 'success', 'warning', 'danger'])->defaultValue('info')->end()
-                    ->scalarNode('prefix')->end()
                     ->booleanNode('escape')->defaultTrue()->end()
                     ->booleanNode('translate')->defaultTrue()->end()
                     ->scalarNode('translation_domain')->defaultValue('messages')->end()

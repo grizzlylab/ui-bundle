@@ -85,7 +85,6 @@ grizzlylab_ui:
     modal_trigger:
         template:             'GrizzlylabUIBundle::modal_trigger.html.twig'
         context:              info # One of "info"; "success"; "warning"; "danger"
-        prefix:               ~
         escape:               true
         translate:            true
         translation_domain:   messages
