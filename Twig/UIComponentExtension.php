@@ -1,6 +1,7 @@
 <?php
 
 namespace Grizzlylab\Bundle\UIBundle\Twig;
+use Symfony\Component\HttpKernel\Kernel;
 
 /**
  * Class UIComponentExtension
