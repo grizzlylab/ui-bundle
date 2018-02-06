@@ -1,6 +1,7 @@
 <?php
 
 namespace Grizzlylab\Bundle\UIBundle\Twig;
+
 use Symfony\Component\HttpKernel\Kernel;
 
 /**
@@ -309,7 +310,9 @@ class UIComponentExtension extends \Twig_Extension
             foreach ($translationParameters as $key => $value) {
                 $unescapedKey                         = str_replace('%%', '%', $key);
                 $translationParameters[$unescapedKey] = $value;
-                unset($translationParameters[$key]);
+                if ($unescapedKey !== $key) {
+                    unset($translationParameters[$key]);
+                }
             }
         }
 
