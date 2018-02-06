@@ -26,6 +26,12 @@ class Configuration implements ConfigurationInterface
                     ->scalarNode('translation_domain')->defaultValue('messages')->end()
                     ->arrayNode('translation_parameters')
                         ->prototype('scalar')->end()
+                        ->defaultValue(
+                            [
+                                '%%strong_start%%' => '<strong>',
+                                '%%strong_end%%'   => '</strong>',
+                            ]
+                        )
                     ->end()
                     ->booleanNode('translate')->defaultTrue()->end()
                     ->booleanNode('escape_message')->defaultTrue()->end()
@@ -61,10 +67,22 @@ class Configuration implements ConfigurationInterface
                     ->scalarNode('title_translation_domain')->defaultValue('messages')->end()
                     ->arrayNode('title_translation_parameters')
                         ->prototype('scalar')->end()
+                        ->defaultValue(
+                            [
+                                '%%strong_start%%' => '<strong>',
+                                '%%strong_end%%'   => '</strong>',
+                            ]
+                        )
                     ->end()
                     ->scalarNode('body_translation_domain')->defaultValue('messages')->end()
                     ->arrayNode('body_translation_parameters')
                         ->prototype('scalar')->end()
+                        ->defaultValue(
+                            [
+                                '%%strong_start%%' => '<strong>',
+                                '%%strong_end%%'   => '</strong>',
+                            ]
+                        )
                     ->end()
                     ->scalarNode('dismiss_button')->defaultValue('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>')->end()
                     ->booleanNode('keep_default_footer_buttons')->defaultTrue()->end()
@@ -88,6 +106,12 @@ class Configuration implements ConfigurationInterface
                     ->scalarNode('translation_domain')->defaultValue('messages')->end()
                     ->arrayNode('translation_parameters')
                         ->prototype('scalar')->end()
+                        ->defaultValue(
+                            [
+                                '%%strong_start%%' => '<strong>',
+                                '%%strong_end%%'   => '</strong>',
+                            ]
+                        )
                     ->end()
                     ->enumNode('size')->values(['small', 'medium', 'large'])->defaultValue('medium')->end()
                     ->booleanNode('is_link')->defaultFalse()->end()

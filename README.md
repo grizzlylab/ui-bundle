@@ -41,7 +41,9 @@ grizzlylab_ui:
     alert:
         template:             'GrizzlylabUIBundle::alert.html.twig'
         translation_domain:   messages
-        translation_parameters:  []
+        translation_parameters:  
+            %%strong_start%%: '<strong>'
+            %%strong_end%%:   '</strong>'
         translate:            true
         escape_message:       true
         escape_prefix:        false
@@ -67,9 +69,13 @@ grizzlylab_ui:
         translate_body:       true
         title_markup:         h1
         title_translation_domain:  messages
-        title_translation_parameters:  []
+        title_translation_parameters:
+            %%strong_start%%: '<strong>'
+            %%strong_end%%:   '</strong>'
         body_translation_domain:  messages
-        body_translation_parameters:  []
+        body_translation_parameters:  
+            %%strong_start%%: '<strong>'
+            %%strong_end%%:   '</strong>'
         dismiss_button:       '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>'
         keep_default_footer_buttons: true
         footer_raw_prepend: ''
@@ -88,7 +94,9 @@ grizzlylab_ui:
         escape:               true
         translate:            true
         translation_domain:   messages
-        translation_parameters:  []
+        translation_parameters:  
+            %%strong_start%%: '<strong>'
+            %%strong_end%%:   '</strong>'
         size:                 medium # One of "small"; "medium"; "large"
         is_link:              false
     truncate_to_tooltip: 
