@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": "^7.1",
-        "symfony/symfony": "~2.7|~3.0",
+        "symfony/symfony": "~2.7|~3.0|~4.0",
         "twig/twig": "1.*|2.*",
         "twig/extensions": ">=1.2 <2.0"
     },
