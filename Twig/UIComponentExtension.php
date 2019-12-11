@@ -196,7 +196,7 @@ class UIComponentExtension extends \Twig_Extension
 
         $keepDefaultFooterButtons = isset($options['keep_default_footer_buttons']) ? $options['keep_default_footer_buttons'] : $config['keep_default_footer_buttons'];
 
-        if ($keepDefaultFooterButtons['keep_default_footer_buttons'] && isset($options['footer_buttons'])) {
+        if ($keepDefaultFooterButtons && isset($options['footer_buttons'])) {
             $footerButtons = array_merge($config['footer_buttons'], $footerButtons);
         }
 
