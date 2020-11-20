@@ -3,36 +3,29 @@
 namespace Grizzlylab\Bundle\UIBundle\Twig;
 
 use Symfony\Component\HttpKernel\Kernel;
-
+use Twig\Environment;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
+use Twig\TwigFilter;
 /**
- * Class UIComponentExtension
- *
- * @package MYQMP\Bundle\CoreBundle\Twig
  * @author  Jean-Louis Pirson <jl.pirson@grizzlylab.be>
  */
-class UIComponentExtension extends \Twig_Extension
+class UIComponentExtension extends AbstractExtension
 {
-    private $uiConfig = array();
+    private array $uiConfig;
 
-    /**
-     * Constructor
-     *
-     * @param array $uiConfig
-     */
     public function __construct(array $uiConfig)
     {
         $this->uiConfig = $uiConfig;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getFunctions()
+
+    public function getFunctions(): array
     {
         $r = [];
 
         if (isset($this->uiConfig['alert'])) {
-            $r[] = new \Twig_SimpleFunction(
+            $r[] = new TwigFunction(
                 'alert',
                 [$this, 'alert'],
                 [
@@ -42,7 +35,7 @@ class UIComponentExtension extends \Twig_Extension
             );
         }
         if (isset($this->uiConfig['modal'])) {
-            $r[] = new \Twig_SimpleFunction(
+            $r[] = new TwigFunction(
                 'modal',
                 [$this, 'modal'],
                 [
@@ -52,7 +45,7 @@ class UIComponentExtension extends \Twig_Extension
             );
         }
         if (isset($this->uiConfig['modal_trigger'])) {
-            $r[] = new \Twig_SimpleFunction(
+            $r[] = new TwigFunction(
                 'modal_trigger',
                 [$this, 'modalTrigger'],
                 [
@@ -65,15 +58,12 @@ class UIComponentExtension extends \Twig_Extension
         return $r;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getFilters()
+    public function getFilters(): array
     {
         $r = [];
 
         if (isset($this->uiConfig['alert'])) {
-            $r[] = new \Twig_SimpleFilter(
+            $r[] = new TwigFilter(
                 'alert',
                 [$this, 'alert'],
                 [
@@ -83,7 +73,7 @@ class UIComponentExtension extends \Twig_Extension
             );
         }
         if (isset($this->uiConfig['modal'])) {
-            $r[] = new \Twig_SimpleFilter(
+            $r[] = new TwigFilter(
                 'modal',
                 [$this, 'modal'],
                 [
@@ -93,7 +83,7 @@ class UIComponentExtension extends \Twig_Extension
             );
         }
         if (isset($this->uiConfig['modal_trigger'])) {
-            $r[] = new \Twig_SimpleFilter(
+            $r[] = new TwigFilter(
                 'modal_trigger',
                 [$this, 'modalTrigger'],
                 [
@@ -103,9 +93,9 @@ class UIComponentExtension extends \Twig_Extension
             );
         }
         if (isset($this->uiConfig['truncate_to_tooltip'])) {
-            $r[] = new \Twig_SimpleFilter(
+            $r[] = new TwigFilter(
                 'truncate_to_tooltip',
-                [$this, 'truncate_to_tooltip'],
+                [$this, 'truncateToTooltip'],
                 [
                     'is_safe'           => ['html'],
                     'needs_environment' => true,
@@ -116,16 +106,7 @@ class UIComponentExtension extends \Twig_Extension
         return $r;
     }
 
-    /**
-     * alert.
-     *
-     * @param \Twig_Environment $environment
-     * @param string            $message
-     * @param array             $options
-     *
-     * @return string
-     */
-    public function alert(\Twig_Environment $environment, string $message, array $options = []): string
+    public function alert(Environment $environment, string $message, array $options = []): string
     {
         $config  = $this->uiConfig['alert'];
         $context = isset($options['context']) ? $options['context'] : $config['context'];
@@ -149,16 +130,7 @@ class UIComponentExtension extends \Twig_Extension
         );
     }
 
-    /**
-     * Modal Trigger.
-     *
-     * @param \Twig_Environment $environment
-     * @param string            $label
-     * @param array             $options
-     *
-     * @return string
-     */
-    public function modalTrigger(\Twig_Environment $environment, string $label, array $options = []): string
+    public function modalTrigger(Environment $environment, string $label, array $options = []): string
     {
         $config = $this->uiConfig['modal_trigger'];
 
@@ -179,16 +151,7 @@ class UIComponentExtension extends \Twig_Extension
         );
     }
 
-    /**
-     * Modal.
-     *
-     * @param \Twig_Environment $environment
-     * @param string            $body
-     * @param array             $options
-     *
-     * @return string
-     */
-    public function modal(\Twig_Environment $environment, string $body, array $options = []): string
+    public function modal(Environment $environment, string $body, array $options = []): string
     {
         $config = $this->uiConfig['modal'];
 
@@ -262,17 +225,7 @@ class UIComponentExtension extends \Twig_Extension
         );
     }
 
-    /**
-     * truncate_to_tooltip
-     *
-     * @param \Twig_Environment $env
-     * @param string            $value
-     * @param int|null          $length
-     * @param array             $options
-     *
-     * @return string
-     */
-    public function truncate_to_tooltip(\Twig_Environment $env, string $value, ?int $length = null, array $options = []): string
+    public function truncateToTooltip(Environment $env, string $value, ?int $length = null, array $options = []): string
     {
         $config = $this->uiConfig['truncate_to_tooltip'];
 
@@ -280,7 +233,7 @@ class UIComponentExtension extends \Twig_Extension
             isset($options['template']) ? $options['template'] : $config['template'],
             [
                 'value'             => $value,
-                'length'            => $length ? $length : $config['length'],
+                'length'            => $length ?: $config['length'],
                 'preserve'          => isset($options['preserve']) ? $options['preserve'] : $config['preserve'],
                 'separator'         => isset($options['separator']) ? $options['separator'] : $config['separator'],
                 'tooltip_placement' => isset($options['tooltip_placement']) ? $options['tooltip_placement'] : $config['tooltip_placement'],
@@ -288,22 +241,12 @@ class UIComponentExtension extends \Twig_Extension
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
+    public function getName(): string
     {
         return 'grizzlylab_ui_extension';
     }
 
-    /**
-     * unescapeTranslationParameters
-     *
-     * @param array $translationParameters
-     *
-     * @return array
-     */
-    private function unescapeTranslationParameters(array $translationParameters)
+    private function unescapeTranslationParameters(array $translationParameters): array
     {
         // Unescape '%%' in the parameters keys (must be done since Symfony 3.4)
         if (Kernel::MAJOR_VERSION >= 3 || (Kernel::MAJOR_VERSION == 3 && Kernel::MINOR_VERSION > 3)) {
