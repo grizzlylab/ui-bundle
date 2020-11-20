@@ -1,7 +1,7 @@
 {%- if value|length > length -%}
     <span data-toggle="tooltip" data-placement="{{ tooltip_placement }}" title="{{ value }}">
 {%- endif -%}
-{{- value|truncate(length, preserve, separator) -}}
+{{- value|u.truncate(length, preserve, separator) -}}
 {%- if value|length > length -%}
     </span>
 {%- endif -%}
