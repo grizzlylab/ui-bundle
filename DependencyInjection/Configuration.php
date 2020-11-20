@@ -14,11 +14,12 @@ class Configuration implements ConfigurationInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('grizzlylab_ui', 'array');
-        $rootNode
+        $treeBuilder = new TreeBuilder('grizzlylab_ui');
+
+        $treeBuilder
+            ->getRootNode()
             ->children()
             ->arrayNode('alert')
                 ->children()
