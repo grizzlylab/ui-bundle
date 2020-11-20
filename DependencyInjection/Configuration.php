@@ -11,9 +11,6 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  */
 class Configuration implements ConfigurationInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('grizzlylab_ui');
@@ -23,7 +20,7 @@ class Configuration implements ConfigurationInterface
             ->children()
             ->arrayNode('alert')
                 ->children()
-                    ->scalarNode('template')->defaultValue('GrizzlylabUIBundle::alert.html.twig')->end()
+                    ->scalarNode('template')->defaultValue('@GrizzlylabUI/alert.html.twig')->end()
                     ->scalarNode('translation_domain')->defaultValue('messages')->end()
                     ->arrayNode('translation_parameters')
                         ->prototype('scalar')->end()
@@ -54,7 +51,7 @@ class Configuration implements ConfigurationInterface
 
             ->arrayNode('modal')
                 ->children()
-                    ->scalarNode('template')->defaultValue('GrizzlylabUIBundle::modal.html.twig')->end()
+                    ->scalarNode('template')->defaultValue('@GrizzlylabUI/modal.html.twig')->end()
                     ->scalarNode('id')->defaultValue('modal')->end()
                     ->enumNode('backdrop')->values(['true', 'false', 'static'])->defaultValue('true')->end()
                     ->enumNode('keyboard')->values(['true', 'false'])->defaultValue('true')->end()
@@ -100,7 +97,7 @@ class Configuration implements ConfigurationInterface
 
             ->arrayNode('modal_trigger')
                 ->children()
-                    ->scalarNode('template')->defaultValue('GrizzlylabUIBundle::modal_trigger.html.twig')->end()
+                    ->scalarNode('template')->defaultValue('@GrizzlylabUI/modal_trigger.html.twig')->end()
                     ->enumNode('context')->values(['info', 'success', 'warning', 'danger'])->defaultValue('info')->end()
                     ->booleanNode('escape')->defaultTrue()->end()
                     ->booleanNode('translate')->defaultTrue()->end()
@@ -125,7 +122,7 @@ class Configuration implements ConfigurationInterface
                     ->booleanNode('preserve')->defaultFalse()->end()
                     ->scalarNode('separator')->defaultValue('...')->end()
 	                ->enumNode('tooltip_placement')->values(['top', 'right', 'bottom', 'left'])->defaultValue('top')->end()
-                    ->scalarNode('template')->defaultValue('GrizzlylabUIBundle::truncate_to_tooltip.html.twig')->end()
+                    ->scalarNode('template')->defaultValue('@GrizzlylabUI/truncate_to_tooltip.html.twig')->end()
                 ->end()// truncate children
             ->end()// truncate
 
