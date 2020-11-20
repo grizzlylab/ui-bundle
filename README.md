@@ -5,7 +5,7 @@ UI Twig helpers (alert, modal,...) for Twitter Bootstrap 3 and others.
 Easy way to generate redundant HTML (HTML only, not JS or CSS).
 
 ### 1. Requirements
-- PHP >=5.4
+- PHP >=7.1
 - Twig 1.*
 - Symfony ~2.7|~3.0
 
