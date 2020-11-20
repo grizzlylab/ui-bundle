@@ -4,12 +4,7 @@ GrizzlylabUIBundle
 UI Twig helpers (alert, modal,...) for Twitter Bootstrap 3 and others.
 Easy way to generate redundant HTML (HTML only, not JS or CSS).
 
-### 1. Requirements
-- PHP >=7.1
-- Twig 1.*
-- Symfony ~2.7|~3.0
-
-### 2. Installation
+### 1. Installation
 
 - ```composer require 'grizzlylab/ui-bundle@dev-master'```
 - in AppKernel.php: ```new Grizzlylab\Bundle\UIBundle\GrizzlylabUIBundle()```
@@ -22,7 +17,7 @@ Easy way to generate redundant HTML (HTML only, not JS or CSS).
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     ```
 
-### 3. Configuration
+### 2. Configuration
 
 #### Basic configuration (to use defaults)
 ```
@@ -107,7 +102,7 @@ grizzlylab_ui:
         tooltip_placement:    'top'  #use one of these: top, right, bottom, left  
 ```
 
-### 4. Use (in Twig)
+### 3. Use (in Twig)
 
 Tips:
 
