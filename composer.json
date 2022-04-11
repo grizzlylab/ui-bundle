@@ -1,7 +1,7 @@
 {
     "name": "grizzlylab/ui-bundle",
     "type": "symfony-bundle",
-    "description": "UI Twig helpers (alert, modal) for Twitter Bootstrap and Co",
+    "description": "UI Twig helpers for Twitter Bootstrap 3",
     "keywords": ["user interface", "ui", "bootstrap"],
     "homepage": "https://github.com/grizzlylab/UIBundle",
     "license": "MIT",
